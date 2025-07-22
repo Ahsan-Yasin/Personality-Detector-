@@ -1,0 +1,11 @@
+stages:
+  data_ingestion_and_processing:
+    cmd: python src/data_processing.py
+    deps:
+    - src/data_ingestion.py   
+    - src/data_processing.py 
+    - raw_data/personality_dataset.csv
+    outs: 
+      - data/processed_personality.csv
+
+    
