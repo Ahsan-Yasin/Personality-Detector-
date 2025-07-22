@@ -6,6 +6,6 @@ stages:
     - src/data_processing.py 
     - raw_data/personality_dataset.csv
     outs: 
-      - data/processed_personality.csv
+      - data/processed/processed_personality.csv
 
     
