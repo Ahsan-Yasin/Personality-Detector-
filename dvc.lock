@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  data_ingestion_and_processing:
+    cmd: python src/data_processing.py
+    deps:
+    - path: raw_data/personality_dataset.csv
+      hash: md5
+      md5: 5b21f8093f51da0db4ee40fe567ab53a
+      size: 107234
+    - path: src/data_ingestion.py
+      hash: md5
+      md5: 511ace34ee967ba086a0b87959bf51f2
+      size: 350
+    - path: src/data_processing.py
+      hash: md5
+      md5: 6392a8e350141973b73e3f2a029e3cc8
+      size: 919
+    outs:
+    - path: data/processed/processed_personality.csv
+      hash: md5
+      md5: 7ff483aca742ba0e20f62b09033f0486
+      size: 86892
