@@ -16,7 +16,7 @@ stages:
     outs:
     - data/train_test/train.csv
     - data/train_test/test.csv
-  mode:
+  model:
     cmd: python src/model.py  
     deps: 
       - data/train_test/train.csv
