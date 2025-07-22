@@ -1,3 +1,4 @@
+#model file 
 import pandas as pd 
 from sklearn.linear_model import LogisticRegression
 from data_ingestion import get_data  
