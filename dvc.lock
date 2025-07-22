@@ -9,14 +9,58 @@ stages:
       size: 107234
     - path: src/data_ingestion.py
       hash: md5
-      md5: 511ace34ee967ba086a0b87959bf51f2
-      size: 350
+      md5: af4d3e156c1fc11e086e78f3ae7236fe
+      size: 252
     - path: src/data_processing.py
       hash: md5
-      md5: 6392a8e350141973b73e3f2a029e3cc8
-      size: 919
+      md5: 46a59ebe84df0c7d55d14dde64975711
+      size: 921
     outs:
     - path: data/processed/processed_personality.csv
       hash: md5
-      md5: 7ff483aca742ba0e20f62b09033f0486
-      size: 86892
+      md5: 95b6227d53f77e6a85b21f0f26cbe14a
+      size: 75439
+  data_splitting:
+    cmd: python src/splitting_data.py
+    deps:
+    - path: data/processed/processed_personality.csv
+      hash: md5
+      md5: 95b6227d53f77e6a85b21f0f26cbe14a
+      size: 75439
+    - path: src/splitting_data.py
+      hash: md5
+      md5: 994f07753a18e76e8b2a5c2a008b8b1a
+      size: 569
+    outs:
+    - path: data/train_test/test.csv
+      hash: md5
+      md5: 5dd0dba237d9de5885c56527fa913f5c
+      size: 7684
+    - path: data/train_test/train.csv
+      hash: md5
+      md5: c635441946038fb1ae902ed9de8f84da
+      size: 67894
+  mode:
+    cmd: python src/model.py
+    deps:
+    - path: data/train_test/test.csv
+      hash: md5
+      md5: 5dd0dba237d9de5885c56527fa913f5c
+      size: 7684
+    - path: data/train_test/train.csv
+      hash: md5
+      md5: c635441946038fb1ae902ed9de8f84da
+      size: 67894
+    - path: src/model.py
+      hash: md5
+      md5: 8d14cb4ecb4e939210973f6e254db815
+      size: 1271
+    outs:
+    - path: models/personality_model.pkl
+      hash: md5
+      md5: 97eaccbc63c45ddb8b2760ab2f41d053
+      size: 1327
+    - path: models/report/personality_model_report.txt
+      hash: md5
+      md5: d0e9540341fd63354f42962c1c2efacf
+      size: 378

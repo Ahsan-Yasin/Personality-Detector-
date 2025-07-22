@@ -8,4 +8,21 @@ stages:
     outs: 
       - data/processed/processed_personality.csv
 
+  data_splitting:
+    cmd: python src/splitting_data.py  
+    deps: 
+    -  src/splitting_data.py
+    - data/processed/processed_personality.csv 
+    outs:
+    - data/train_test/train.csv
+    - data/train_test/test.csv
+  mode:
+    cmd: python src/model.py  
+    deps: 
+      - data/train_test/train.csv
+      - data/train_test/test.csv 
+      - src/model.py 
+    outs:
+      - models/personality_model.pkl 
+      - models/report/personality_model_report.txt
     

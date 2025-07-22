@@ -9,6 +9,3 @@ def get_data(file_name):
     except Exception as e:
         print('ERROR WHILE READING FILE ')
         raise(e) 
-if __name__=="__main__":
-    df=get_data('raw_data/personality_dataset.csv') 
-    print(df.head())
