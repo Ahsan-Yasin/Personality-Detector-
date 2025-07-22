@@ -9,5 +9,5 @@ def get_data(file_name):
     except Exception as e:
         print('ERROR WHILE READING FILE ')
         raise(e)
-df=get_data('personality_dataset.csv') 
+df=get_data('raw_data/personality_dataset.csv') 
 df.head()
